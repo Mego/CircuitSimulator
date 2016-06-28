@@ -93,6 +93,15 @@ WIRES = NamedTuple(
     B_R_WIRE = simple_component_maker(lambda t,l,b,r:(False,False,r,b)),
 )
 
+# Clock (constant output) components
+CLOCKS = NamedTuple(
+    # Single outputs
+    T_CLOCK = simple_component_maker(lambda t,l,b,r:(True,False,False,False)),
+    L_CLOCK = simple_component_maker(lambda t,l,b,r:(False,True,False,False)),
+    B_CLOCK = simple_component_maker(lambda t,l,b,r:(False,False,True,False)),
+    R_CLOCK = simple_component_maker(lambda t,l,b,r:(False,False,False,True)),
+)
+
 # Gate (non-reversible) components
 AND_GATES = NamedTuple(
     # Opposing inputs, single output
